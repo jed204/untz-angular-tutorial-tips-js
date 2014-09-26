@@ -6,7 +6,7 @@ Library to support creating tutorial tooltip walkthroughs on your page. Define t
 Demo
 ----
 
-Coming Soon!
+See a demo here 'http://jed204.github.io/untz-angular-tutorial-tips-js/demo.html'
 
 Install
 -----
