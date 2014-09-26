@@ -1,0 +1,27 @@
+{
+  "name": "untz-tutorial-tooltips-js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/untzuntz/untz-tutorial-tooltips-js",
+  "authors": [
+    "Jed Danner <jed.danner@gmail.com>"
+  ],
+  "description": "Library to support creating tutorial tooltip walkthroughs on your page",
+  "main": "./untz-tutorial-tooltips.js",
+  "keywords": [
+    "angularjs",
+    "tooltips"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "gulpfile.js",
+    "build",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

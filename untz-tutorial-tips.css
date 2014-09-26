@@ -1,0 +1,176 @@
+/*
+  Tutorial Basics
+*/
+.untz-tooltip-mask {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.35);
+  opacity: 0;
+    -webkit-animation: untz-fadeout .5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: untz-fadeout .5s; /* Firefox < 16 */
+        -ms-animation: untz-fadeout .5s; /* Internet Explorer */
+         -o-animation: untz-fadeout .5s; /* Opera < 12.1 */
+            animation: untz-fadeout .5s;
+}
+
+.untz-tooltip a.close-tooltip {
+  color: #777;
+  font-size: 14px;
+  font-weight: 100;
+  position: absolute;
+  right: 13px;
+  top: 14px;
+}
+
+.untz-tooltip .navigation {
+  width: 100%;
+  height: 40px;
+  background-color: #8ec601;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  text-align: center;
+  border-radius: 0px 0px 5px 5px;  
+  padding-top: 6px;
+}
+
+.untz-tooltip .navigation button {
+  position: absolute;
+  right: 15px;
+  top: 6px;
+  padding: 2px 20px;  
+}
+
+.untz-tooltip .step {
+  font-size: 12px;
+  color: #fff;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.untz-tooltip .btn-tooltip {
+  background-color: #8ec601;
+  border-color: #333;
+  color: #fff;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;  
+}
+
+.untz-tooltip {
+  position: absolute;
+  color: #000;
+  background-color: #fff;
+  width: 260px;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 6px #777;
+  cursor: default;
+  opacity: 0;
+    -webkit-animation: untz-fadeout .5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: untz-fadeout .5s; /* Firefox < 16 */
+        -ms-animation: untz-fadeout .5s; /* Internet Explorer */
+         -o-animation: untz-fadeout .5s; /* Opera < 12.1 */
+            animation: untz-fadeout .5s;
+}
+
+.untz-tooltip h4 {
+  margin: 3px 5px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #222;  
+}
+
+.untz-tooltip p {
+  margin: 10px 5px;
+  font-size: 12px;
+  color: #444;  
+  padding-bottom: 30px;
+}
+
+.untz-tooltip-solid {
+  opacity: 1;
+  z-index: 19999;
+    -webkit-animation: untz-fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: untz-fadein 1s; /* Firefox < 16 */
+        -ms-animation: untz-fadein 1s; /* Internet Explorer */
+         -o-animation: untz-fadein 1s; /* Opera < 12.1 */
+            animation: untz-fadein 1s;
+}
+
+.untz-tooltip .diamond {
+  right: auto; 
+  top: auto;
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+@keyframes untz-fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes untz-fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes untz-fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes untz-fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes untz-fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes untz-fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes untz-fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes untz-fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes untz-fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes untz-fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
