@@ -1,6 +1,6 @@
-var directives = angular.module('untz.tutorialtips', []);
+var module = angular.module('untz.tutorialtips', []);
 
-app.service("untzTutorialTipsSvc", function() {
+module.service("untzTutorialTipsSvc", function() {
     var callback;
     return {
         subscribe: function(cb) {
@@ -12,7 +12,7 @@ app.service("untzTutorialTipsSvc", function() {
     };
 });
 
-directives.directive('untzTutorialTips', ['untzTutorialTipsSvc', function(untzTutorialTipsSvc){
+module.directive('untzTutorialTips', ['untzTutorialTipsSvc', function(untzTutorialTipsSvc){
     return {
         scope: {
         },
