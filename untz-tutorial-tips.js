@@ -1,4 +1,4 @@
-var directives = angular.module('untz.tooltips', []);
+var directives = angular.module('untz.tutorialtips', []);
 
 app.service("untzTutorialTipsSvc", function() {
     var callback;
@@ -34,7 +34,7 @@ directives.directive('untzTutorialTips', ['untzTutorialTipsSvc', function(untzTu
         link: function($scope, element, attrs, controller) {
         	
 
-			untzTooltipSvc.subscribe(function(tips) {
+			untzTutorialTipsSvc.subscribe(function(tips) {
         		if (!tips)
         			return;
 
@@ -65,7 +65,16 @@ directives.directive('untzTutorialTips', ['untzTutorialTipsSvc', function(untzTu
 
 	        	var ele = document.getElementById('untz-tooltip-primary');
 	        	ele.style.top = $scope.step.top + 'px';
-	        	ele.style.left = $scope.step.left + 'px';
+	        	if ($scope.step.right)
+	        	{
+		        	ele.style.right = $scope.step.right + 'px';
+		        	ele.style.left = '';
+	        	}
+	        	else
+	        	{
+		        	ele.style.left = $scope.step.left + 'px';
+		        	ele.style.right = '';
+		        }
 	        	var ele = document.getElementById('tooltip-diamond');
 	        	var bottom = 45;
 	        	if ($scope.step.diamondBottom)	
