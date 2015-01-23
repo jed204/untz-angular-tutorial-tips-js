@@ -116,6 +116,13 @@
   -webkit-transform: rotate(45deg);
 }
 
+.untz-left {
+  box-shadow: -2px 2px 6px -2px #777;
+}
+.untz-right {
+  box-shadow: 2px -2px 6px -2px #777;
+}
+
 @keyframes untz-fadein {
     from { opacity: 0; }
     to   { opacity: 1; }

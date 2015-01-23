@@ -16,18 +16,20 @@ module.directive('untzTutorialTips', ['untzTutorialTipsSvc', function(untzTutori
     return {
         scope: {
         },
-        template: '<div ng-show="show" id="untz-tooltip-mask" class="untz-tooltip-mask"></div>' +
+        template: '<div ng-show="showMask" id="untz-tooltip-mask" class="untz-tooltip-mask"></div>' +
 				   '<div ng-show="show" id="untz-tooltip-primary" class="untz-tooltip">' +
 					'  <div class="diamond" id="tooltip-diamond"></div>' +
 					'    <a class="close-tooltip" ng-click="close()">✕</a>' +
 					'    <h4>{{step.header}}</h4>' +
 					'    <p>{{step.text}}</p>' +
 					'    <div class="navigation">' +
+					'	   <div ng-hide="hideNav">' +
 					'      <span class="step">{{stepIdx}} of {{untzTooltips.length}}</span>' +
 					'      <button class="btn btn-tooltip">' +
 					'      	<span ng-show="stepIdx < untzTooltips.length" ng-click="nextStep()">Next</span>' +
 					'      	<span ng-show="stepIdx == untzTooltips.length" ng-click="close()">Close</span>' +
 					'      </button>' +
+					'      </div>' +
 					'    </div>' +
 					'  </div>' +
 				   '</div>',
@@ -42,6 +44,10 @@ module.directive('untzTutorialTips', ['untzTutorialTipsSvc', function(untzTutori
 					$scope.untzTooltips = tips;
 					$scope.fadein();        		
 				}
+				else
+				{
+					$scope.close();
+				}
 			});
 
         	var mask = document.getElementById('untz-tooltip-mask');
@@ -54,6 +60,7 @@ module.directive('untzTutorialTips', ['untzTutorialTipsSvc', function(untzTutori
 
         		$scope.stepIdx = 1;
 	        	$scope.show = true;
+	        	$scope.showMask = true;
 
 	        	mask.className += mask.className ? ' untz-tooltip-solid' : 'untz-tooltip-solid';
 	        	tooltip.className += mask.className ? ' untz-tooltip-solid' : 'untz-tooltip-solid';
@@ -70,11 +77,37 @@ module.directive('untzTutorialTips', ['untzTutorialTipsSvc', function(untzTutori
 		        	ele.style.right = $scope.step.right + 'px';
 		        	ele.style.left = '';
 	        	}
+	        	else if ($scope.step.rightOf) {
+	        		var target = $('#' + $scope.step.rightOf);
+	        		if (target && target.offset()) {
+	        			var topOff = 0;
+	        			if ($scope.step.top)
+	        				topOff = $scope.step.top;
+		        		ele.style.left = (target.offset().left + target.width() + 30) + 'px';
+			        	ele.style.right = '';
+			        	ele.style.top = (target.offset().top - 34 + topOff) + 'px';
+			        }
+	        	}
+	        	else if ($scope.step.leftOf) {
+	        		var target = $('#' + $scope.step.leftOf);
+	        		if (target && target.offset()) {
+	        			var topOff = 0;
+	        			if ($scope.step.top)
+	        				topOff = $scope.step.top;
+		        		ele.style.right = (target.offset().left - 245) + 'px';
+			        	ele.style.left = '';
+			        	ele.style.top = (target.offset().top - 34 + topOff) + 'px';
+			        }
+	        	}
 	        	else
 	        	{
 		        	ele.style.left = $scope.step.left + 'px';
 		        	ele.style.right = '';
 		        }
+
+	        	$scope.showMask = !$scope.step.hideMask;
+		        $scope.hideNav = $scope.step.hideNav;
+
 	        	var ele = document.getElementById('tooltip-diamond');
 	        	var bottom = 45;
 	        	if ($scope.step.diamondBottom)	
@@ -82,11 +115,14 @@ module.directive('untzTutorialTips', ['untzTutorialTipsSvc', function(untzTutori
 
 		        ele.style.bottom = bottom + 'px';
 
+
 	        	if ($scope.step.side == 'right') {
+			        ele.className = 'diamond untz-right'
 		        	ele.style.right = '-7px';
 		        	ele.style.left = '';
 	        	}
 		        else {
+			        ele.className = 'diamond untz-left'
 		        	ele.style.left = '-6px' 
 		        	ele.style.right = '';
 		        }
@@ -98,7 +134,8 @@ module.directive('untzTutorialTips', ['untzTutorialTipsSvc', function(untzTutori
 	        }
 
 	        $scope.close = function() {
-	        	mask.className = 'untz-tooltip-mask';
+	        	$scope.showMask = false;
+	        	mask.className = 'untz-tooltip-mask ng-hide';
 	        	tooltip.className = 'untz-tooltip';
 	        }
 
