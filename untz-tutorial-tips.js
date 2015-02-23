@@ -94,7 +94,8 @@ module.directive('untzTutorialTips', ['untzTutorialTipsSvc', function(untzTutori
 	        			var topOff = 0;
 	        			if ($scope.step.top)
 	        				topOff = $scope.step.top;
-		        		ele.style.right = (target.offset().left - 245) + 'px';
+	        			
+		        		ele.style.right = ($( window ).width() - target.offset().left + 30) + 'px';
 			        	ele.style.left = '';
 			        	ele.style.top = (target.offset().top - 34 + topOff) + 'px';
 			        }
